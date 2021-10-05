@@ -53,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
       size: 30,
     ),
   ];
+  List _statsButtonName = ['Battery', 'Security', 'Memory'];
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
 
   @override
@@ -225,7 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 255,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 5,
+                itemCount: _cardNames.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Stack(
                     alignment: Alignment.bottomLeft,
@@ -311,6 +312,182 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: _icons[index],
                       ),
                     ],
+                  );
+                }),
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.orangeAccent.shade100,
+                    Colors.grey.shade800,
+                    Colors.black87.withOpacity(0.5),
+                  ],
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                ),
+                borderRadius: BorderRadius.circular(100),
+              ),
+              height: 75,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: FaIcon(
+                      FontAwesomeIcons.crown,
+                      size: 30,
+                      color: Colors.grey[850],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: 15,
+                      bottom: 10,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        RichText(
+                          text: TextSpan(children: [
+                            TextSpan(
+                              text: 'TRY PREMIUM',
+                              style: TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: -2,
+                              ),
+                            ),
+                            TextSpan(
+                                text: '*',
+                                style: TextStyle(
+                                  color: Colors.orange.shade400,
+                                  fontSize: 25,
+                                  fontFamily: 'Montserrat',
+                                )),
+                          ]),
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              height: 15,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                color: Colors.orange.shade400,
+                                borderRadius: BorderRadius.circular(2),
+                              ),
+                              child: Text(
+                                'FOR FREE',
+                                style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w800,
+                                  color: Colors.white,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              'ONE WEEK TRIAL',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Montserrat',
+                                letterSpacing: -1,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.arrow_right_sharp,
+                        color: Colors.white,
+                        size: 30,
+                      )),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Row(
+                  children: [
+                    FaIcon(
+                      FontAwesomeIcons.box,
+                      size: 35,
+                      color: Colors.white,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
+                        'STATS',
+                        style: TextStyle(
+                          color: Colors.grey[350],
+                          fontSize: 22,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Text(
+                  'CHOOSE\nCATEGORY',
+                  textAlign: TextAlign.right,
+                  style: TextStyle(
+                    color: Color.fromRGBO(88, 93, 104, 1),
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w800,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 50,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: _statsButtonName.length,
+                itemBuilder: (BuildContext context, int _index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        OutlinedButton(
+                            autofocus: true,
+                            onPressed: () {},
+                            child: Text(
+                              _statsButtonName[_index],
+                              style: TextStyle(
+                                color: Colors.white60,
+                                fontFamily: 'Montserrat',
+                                fontSize: 22,
+                              ),
+                            )),
+                      ],
+                    ),
                   );
                 }),
           ),
